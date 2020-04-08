@@ -1,0 +1,36 @@
+{
+    "pizzas": [
+        {
+            "name": "Margherita",
+            "ingredients": [
+                3,
+                10
+            ]
+        },
+        {
+            "name": "Ricci",
+            "ingredients": [
+                3,
+                6
+            ]
+        },
+        {
+            "name": "Boscaiola",
+            "ingredients": [
+                3,
+                10,
+                7,
+                4
+            ]
+        },
+        {
+            "name": "Primavera",
+            "ingredients": [
+                3,
+                4,
+                1
+            ]
+        }
+    ],
+    "basePrice": 8.0
+}
