@@ -12,14 +12,14 @@ public enum Endpoints {
 
     public enum Url {
 
-        static let baseUrl = "https://api.myjson.com/bins/"
+        static let baseUrl = "​http://next.json-generator.com/api/json/get/"
 
         static let checkOut = "http://httpbin.org/post"
 
         enum PizzaOrderer {
-            static let ingredients = baseUrl + "ozt3z"
-            static let drinks = baseUrl + "150da7"
-            static let pizzas = baseUrl + "dokm7"
+            static let ingredients = baseUrl + "EkTFDCdsG​"
+            static let drinks = baseUrl + "N1mnOA_oz​"
+            static let pizzas = baseUrl + "NybelGcjz"
         }
     }
 }

@@ -25,6 +25,7 @@ public class Order: NSManagedObject {
         Order.cd_deleteAll(inContext: context)
     }
 
+    @discardableResult
     class func addOrUpdateMovies(from content: OrderDataModel, context: NSManagedObjectContext) -> Order? {
 
         var order = getItem(context: context)

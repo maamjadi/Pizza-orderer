@@ -12,10 +12,16 @@ typealias DataCompletionHandler<T> = ((_ data: T?, _ error: Error?) -> Void)
 
 protocol DataRepository {
 
+    var order: OrderDataModel { get }
+
     func getPizzas(_ completionHandler: @escaping DataCompletionHandler<[PizzaDataModel]>)
     func getDrinks(_ completionHandler: @escaping DataCompletionHandler<DrinksDTO>)
     func getIngredients(_ completionHandler: @escaping DataCompletionHandler<IngredientsDTO>)
     func addOrder(drink: DrinkDataModel)
     func addOrder(pizza: PizzaDataModel)
-    func requestOrder(_ completionHandler: DataCompletionHandler<Void>)
+    func removeOrder(drinkIdentifier: Int)
+    func removeOrder(pizzaIdentifier: Int)
+    func saveOrderToPersistentStore()
+    func initializeOrder()
+    func requestOrder(_ completionHandler: @escaping DataCompletionHandler<Void>)
 }

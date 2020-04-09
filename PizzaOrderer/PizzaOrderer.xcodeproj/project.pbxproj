@@ -19,6 +19,8 @@
 		DD5DE3C8243D9B52005CA40C /* PizzaDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5DE3C7243D9B52005CA40C /* PizzaDataModel.swift */; };
 		DD5DE3CA243D9BC1005CA40C /* OrderDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5DE3C9243D9BC1005CA40C /* OrderDataModel.swift */; };
 		DD5DE3CC243DBA19005CA40C /* DrinkDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5DE3CB243DBA19005CA40C /* DrinkDataModel.swift */; };
+		DD5DE3CF243DC427005CA40C /* EncodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5DE3CE243DC427005CA40C /* EncodableExtension.swift */; };
+		DD5DE3D6243F1D67005CA40C /* OrderableDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5DE3D5243F1D67005CA40C /* OrderableDataModel.swift */; };
 		DD648191243D9261008340BF /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD648190243D9261008340BF /* DataRepository.swift */; };
 		DD648193243D926C008340BF /* DataRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD648192243D926C008340BF /* DataRepositoryImpl.swift */; };
 		DD87AA85243C4B6E00E7FE23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD87AA84243C4B6E00E7FE23 /* AppDelegate.swift */; };
@@ -74,6 +76,8 @@
 		DD5DE3C7243D9B52005CA40C /* PizzaDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaDataModel.swift; sourceTree = "<group>"; };
 		DD5DE3C9243D9BC1005CA40C /* OrderDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDataModel.swift; sourceTree = "<group>"; };
 		DD5DE3CB243DBA19005CA40C /* DrinkDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDataModel.swift; sourceTree = "<group>"; };
+		DD5DE3CE243DC427005CA40C /* EncodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtension.swift; sourceTree = "<group>"; };
+		DD5DE3D5243F1D67005CA40C /* OrderableDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderableDataModel.swift; sourceTree = "<group>"; };
 		DD648190243D9261008340BF /* DataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
 		DD648192243D926C008340BF /* DataRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepositoryImpl.swift; sourceTree = "<group>"; };
 		DD87AA81243C4B6E00E7FE23 /* PizzaOrderer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaOrderer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,11 +197,20 @@
 		DD5DE3C6243D9AFB005CA40C /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				DD5DE3C7243D9B52005CA40C /* PizzaDataModel.swift */,
 				DD5DE3C9243D9BC1005CA40C /* OrderDataModel.swift */,
+				DD5DE3C7243D9B52005CA40C /* PizzaDataModel.swift */,
 				DD5DE3CB243DBA19005CA40C /* DrinkDataModel.swift */,
+				DD5DE3D5243F1D67005CA40C /* OrderableDataModel.swift */,
 			);
 			path = DataModel;
+			sourceTree = "<group>";
+		};
+		DD5DE3CD243DC415005CA40C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DD5DE3CE243DC427005CA40C /* EncodableExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		DD87AA78243C4B6E00E7FE23 = {
@@ -285,6 +298,7 @@
 		DD87AAB5243C52DD00E7FE23 /* DataAccess */ = {
 			isa = PBXGroup;
 			children = (
+				DD5DE3CD243DC415005CA40C /* Extensions */,
 				DD5DE3C6243D9AFB005CA40C /* DataModel */,
 				DD5DE3C3243D95CB005CA40C /* Endpoints */,
 				DDA9E0BB243D84BC00CCF28B /* CoreDataHelper */,
@@ -525,12 +539,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD87AA85243C4B6E00E7FE23 /* AppDelegate.swift in Sources */,
+				DD5DE3CF243DC427005CA40C /* EncodableExtension.swift in Sources */,
 				DDA9E0C9243D879800CCF28B /* OrderObjectDTO.swift in Sources */,
 				DDA9E0D8243D8DD800CCF28B /* Order+CoreDataProperties.swift in Sources */,
 				DDA9E0C3243D858500CCF28B /* IngredientsDTO.swift in Sources */,
 				DD648193243D926C008340BF /* DataRepositoryImpl.swift in Sources */,
 				DDA9E0D7243D8DD800CCF28B /* Order+CoreDataClass.swift in Sources */,
 				DDA9E0DD243D8EBC00CCF28B /* Drink+CoreDataProperties.swift in Sources */,
+				DD5DE3D6243F1D67005CA40C /* OrderableDataModel.swift in Sources */,
 				DD87AAAB243C4C7F00E7FE23 /* HomeTableViewController.swift in Sources */,
 				DD5DE3CC243DBA19005CA40C /* DrinkDataModel.swift in Sources */,
 				DD3C417A243C558600271EDC /* PizzaTableViewCell.swift in Sources */,

@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct DrinkDataModel {
+struct DrinkDataModel: OrderableDataModel {
+    var identifier: Int?
     var uniqueIdentifier: Int!
     var name: String
     var price: Double

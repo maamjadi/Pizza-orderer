@@ -12,7 +12,7 @@ struct IngredientsDTO: Codable {
     var ingredients: [IngredientDTO]
 }
 
-struct IngredientDTO: Codable {
+struct IngredientDTO: Codable, Hashable, Equatable {
     var identifier: Int
     var name: String
     var price: Double
@@ -22,4 +22,10 @@ struct IngredientDTO: Codable {
         case name
         case price
     }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(identifier)
+    }
+
+    static func == (lhs: Self, rhs: Self) -> Bool { lhs.hashValue == rhs.hashValue }
 }

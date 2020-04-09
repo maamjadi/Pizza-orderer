@@ -3,27 +3,27 @@
         {
             "id": 1,
             "name": "Still Water",
-            "price": "5.0"
+            "price": 5.0
         },
         {
             "id": 2,
             "name": "Sparkling Water",
-            "price": "5.0"
+            "price": 5.0
         },
         {
             "id": 3,
             "name": "Coke",
-            "price": "5.0"
+            "price": 5.0
         },
         {
             "id": 4,
             "name": "Beer",
-            "price": "5.0"
+            "price": 5.0
         },
         {
             "id": 5,
             "name": "Red Wine",
-            "price": "5.0"
+            "price": 5.0
         }
     ]
 }
