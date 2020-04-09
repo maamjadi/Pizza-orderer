@@ -25,6 +25,8 @@ class CreatePizzaViewController: UIViewController {
     var pizzaDataModel: PizzaDataModel!
     var isCustomPizza = false
 
+    override var prefersStatusBarHidden: Bool { StatusBarVisibility.shouldHide }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -72,7 +74,11 @@ class CreatePizzaViewController: UIViewController {
 
     @IBAction func addToCartAction(_ sender: Any) {
         dataRepository.addOrder(pizza: pizzaDataModel)
-        navigationController?.popViewController(animated: true)
+        showAlertDialog()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
     }
 }
 

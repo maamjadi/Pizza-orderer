@@ -17,6 +17,8 @@ class HomeViewController: UITableViewController {
 
     private var pizzas = [PizzaDataModel]() { didSet { tableView.reloadData() } }
 
+    override var prefersStatusBarHidden: Bool { StatusBarVisibility.shouldHide }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -80,5 +82,8 @@ class HomeViewController: UITableViewController {
 
 extension HomeViewController: PizzaCellDelegate {
 
-    func addToCart(_ pizzaDataModel: PizzaDataModel) { dataRepository.addOrder(pizza: pizzaDataModel) }
+    func addToCart(_ pizzaDataModel: PizzaDataModel) {
+        dataRepository.addOrder(pizza: pizzaDataModel)
+        showAlertDialog()
+    }
 }

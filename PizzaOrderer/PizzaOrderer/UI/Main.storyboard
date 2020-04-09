@@ -107,10 +107,10 @@
             </objects>
             <point key="canvasLocation" x="1398.5507246376812" y="-493.52678571428567"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main Navigation Controller-->
         <scene sceneID="WSv-n5-a2c">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" interfaceStyle="light" id="F3u-5p-fJZ" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" interfaceStyle="light" id="F3u-5p-fJZ" customClass="MainNavigationController" customModule="PizzaOrderer" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tDg-hb-9X0">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

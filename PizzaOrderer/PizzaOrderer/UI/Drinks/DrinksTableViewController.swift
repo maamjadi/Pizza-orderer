@@ -15,6 +15,8 @@ class DrinksTableViewController: UITableViewController {
 
     private var drinks = [DrinkDTO]() { didSet { tableView.reloadData() } }
 
+    override var prefersStatusBarHidden: Bool { StatusBarVisibility.shouldHide }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -71,6 +73,7 @@ class DrinksTableViewController: UITableViewController {
 
         let drinkDataModel = DrinkDataModel(identifier: drink.identifier, name: drink.name, price: drink.price)
         dataRepository.addOrder(drink: drinkDataModel)
+        showAlertDialog()
     }
 
 }

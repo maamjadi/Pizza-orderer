@@ -23,6 +23,8 @@ class CheckoutViewController: UIViewController {
     private var pizzas: [PizzaDataModel] { order.pizzas }
     private var drinks: [DrinkDataModel] { order.drinks }
 
+    override var prefersStatusBarHidden: Bool { StatusBarVisibility.shouldHide }
+
     private enum CellDataType {
         case pizza, drink, total
 
