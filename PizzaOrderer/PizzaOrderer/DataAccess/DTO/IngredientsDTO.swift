@@ -23,9 +23,7 @@ struct IngredientDTO: Codable, Hashable, Equatable {
         case price
     }
 
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(identifier)
-    }
+    func hash(into hasher: inout Hasher) { hasher.combine(identifier) }
 
     static func == (lhs: Self, rhs: Self) -> Bool { lhs.hashValue == rhs.hashValue }
 }

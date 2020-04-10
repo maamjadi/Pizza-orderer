@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PizzaDataModel: OrderableDataModel {
+struct PizzaDataModel: OrderableDataModel, Hashable, Equatable {
     var uniqueIdentifier: Int!
     var name: String
     var ingredients: [IngredientDTO]
@@ -34,4 +34,8 @@ struct PizzaDataModel: OrderableDataModel {
         self.ingredients = ingredientsDTO?.ingredients.filter({ pizzaDTO.ingredients.contains($0.identifier) }) ?? []
         self.imageUrl = pizzaDTO.imageUrl
     }
+
+    func hash(into hasher: inout Hasher) { hasher.combine(uniqueIdentifier) }
+
+    static func == (lhs: Self, rhs: Self) -> Bool { lhs.hashValue == rhs.hashValue }
 }

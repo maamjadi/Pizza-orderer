@@ -13,6 +13,7 @@ typealias DataCompletionHandler<T> = ((_ data: T?, _ error: Error?) -> Void)
 protocol DataRepository {
 
     var order: OrderDataModel { get }
+    var savedOrder: OrderDataModel? { get }
 
     func getPizzas(_ completionHandler: @escaping DataCompletionHandler<[PizzaDataModel]>)
     func getDrinks(_ completionHandler: @escaping DataCompletionHandler<DrinksDTO>)

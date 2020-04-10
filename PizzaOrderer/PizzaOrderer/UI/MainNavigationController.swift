@@ -13,5 +13,4 @@ class MainNavigationController: UINavigationController {
     override var prefersStatusBarHidden: Bool { StatusBarVisibility.shouldHide }
 
     override var preferredStatusBarStyle: UIStatusBarStyle { .darkContent }
-
 }

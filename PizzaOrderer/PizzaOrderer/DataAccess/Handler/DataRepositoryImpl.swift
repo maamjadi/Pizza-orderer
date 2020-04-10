@@ -30,7 +30,16 @@ class DataRepositoryImpl: NSObject, DataRepository {
     }
 
     var order: OrderDataModel {
+        initializeOrder()
         return _order!
+    }
+
+    var savedOrder: OrderDataModel? {
+        if let saveOrder = Order.getItem(context: mainContext) {
+            return OrderDataModel(order: saveOrder)
+        } else {
+            return nil
+        }
     }
 
     private override init() {
