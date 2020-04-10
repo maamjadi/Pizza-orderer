@@ -1,0 +1,74 @@
+{
+    "pizzas": [
+        {
+            "name": "Margherita",
+            "ingredients": [
+                3,
+                10
+            ]
+        },
+        {
+            "name": "Ricci",
+            "ingredients": [
+                3,
+                6
+            ]
+        },
+        {
+            "name": "Boscaiola",
+            "ingredients": [
+                3,
+                10,
+                7,
+                4
+            ]
+        },
+        {
+            "name": "Primavera",
+            "ingredients": [
+                3,
+                4,
+                1
+            ]
+        },
+        {
+            "name": "Hawaii",
+            "ingredients": [
+                3,
+                10,
+                5,
+                8
+            ]
+        },
+        {
+            "name": "Mari e Monti",
+            "ingredients": [
+                3,
+                10,
+                4,
+                8,
+                2,
+                9
+            ]
+        },
+        {
+            "name": "Bottarga",
+            "ingredients": [
+                3,
+                2
+            ]
+        },
+        {
+            "name": "Bottarga e Asparagi",
+            "ingredients": [
+                3,
+                10,
+                4,
+                8,
+                2,
+                9
+            ]
+        }
+    ],
+    "basePrice": 8.0
+}

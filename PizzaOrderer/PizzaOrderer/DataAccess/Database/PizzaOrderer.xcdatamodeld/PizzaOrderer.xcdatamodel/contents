@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="18G3020" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Drink" representedClassName="Drink" syncable="YES" codeGenerationType="class">
+        <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="price" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="drinks" inverseEntity="Order"/>
+    </entity>
+    <entity name="Order" representedClassName="Order" syncable="YES" codeGenerationType="class">
+        <relationship name="drinks" toMany="YES" deletionRule="Cascade" destinationEntity="Drink" inverseName="order" inverseEntity="Drink"/>
+        <relationship name="pizzas" toMany="YES" deletionRule="Cascade" destinationEntity="Pizza" inverseName="order" inverseEntity="Pizza"/>
+    </entity>
+    <entity name="Pizza" representedClassName="Pizza" syncable="YES" codeGenerationType="class">
+        <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="price" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="pizzas" inverseEntity="Order"/>
+    </entity>
+    <elements>
+        <element name="Drink" positionX="-36" positionY="9" width="128" height="103"/>
+        <element name="Order" positionX="-54" positionY="-9" width="128" height="73"/>
+        <element name="Pizza" positionX="-63" positionY="-18" width="128" height="103"/>
+    </elements>
+</model>

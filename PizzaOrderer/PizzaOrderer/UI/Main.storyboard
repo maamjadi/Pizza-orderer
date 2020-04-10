@@ -11,7 +11,7 @@
         <!--Nenno's pizza-->
         <scene sceneID="dZq-P3-tGs">
             <objects>
-                <tableViewController id="6ly-Sr-Izg" customClass="HomeTableViewController" sceneMemberID="viewController">
+                <tableViewController interfaceStyle="light" id="6ly-Sr-Izg" customClass="HomeViewController" customModule="PizzaOrderer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="178" sectionHeaderHeight="28" sectionFooterHeight="28" id="HyN-Ag-gqJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,15 +34,19 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="S05-vE-obo" kind="show" identifier="createPizza" id="5wy-hu-XUI"/>
+                        <segue destination="Pzz-gY-5WK" kind="show" identifier="showCart" id="2QK-vT-tvF"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1mP-L7-muS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="423.1884057971015" y="45.535714285714285"/>
+            <point key="canvasLocation" x="445" y="46"/>
         </scene>
         <!--CART-->
         <scene sceneID="0eR-RA-Uoi">
             <objects>
-                <viewController id="Pzz-gY-5WK" customClass="CheckoutViewController" customModule="PizzaOrderer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController interfaceStyle="light" id="Pzz-gY-5WK" customClass="CheckoutViewController" customModule="PizzaOrderer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V9V-U8-iAp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,28 +69,10 @@
                                     <action selector="checkoutAction:" destination="Pzz-gY-5WK" eventType="touchUpInside" id="rva-5V-d5y"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="48l-Gd-0U5">
-                                <rect key="frame" x="0.0" y="44" width="414" height="768"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="48l-Gd-0U5">
+                                <rect key="frame" x="0.0" y="88" width="414" height="724"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbw-Jb-PgE">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xjk-cS-nYV">
-                                        <rect key="frame" x="101" y="365.5" width="212.5" height="81.5"/>
-                                        <string key="text">Thank you
-for your order!</string>
-                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="34"/>
-                                        <color key="textColor" name="red"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="Xjk-cS-nYV" firstAttribute="centerX" secondItem="xbw-Jb-PgE" secondAttribute="centerX" id="8HT-0a-DVq"/>
-                                    <constraint firstItem="Xjk-cS-nYV" firstAttribute="centerY" secondItem="xbw-Jb-PgE" secondAttribute="centerY" id="Beu-0c-ITT"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -97,37 +83,39 @@ for your order!</string>
                             <constraint firstItem="cB1-ni-hsO" firstAttribute="leading" secondItem="iJE-xj-ggp" secondAttribute="leading" id="Eeq-ys-9hU"/>
                             <constraint firstItem="iJE-xj-ggp" firstAttribute="trailing" secondItem="5sV-Wh-eKu" secondAttribute="trailing" id="FET-kl-CuP"/>
                             <constraint firstItem="iJE-xj-ggp" firstAttribute="trailing" secondItem="48l-Gd-0U5" secondAttribute="trailing" id="Icw-ah-7hf"/>
-                            <constraint firstItem="xbw-Jb-PgE" firstAttribute="top" secondItem="V9V-U8-iAp" secondAttribute="top" id="LCE-xo-xhN"/>
-                            <constraint firstItem="xbw-Jb-PgE" firstAttribute="leading" secondItem="iJE-xj-ggp" secondAttribute="leading" id="Vxb-YI-J8e"/>
                             <constraint firstItem="48l-Gd-0U5" firstAttribute="leading" secondItem="iJE-xj-ggp" secondAttribute="leading" id="Y7n-zp-3xN"/>
-                            <constraint firstItem="iJE-xj-ggp" firstAttribute="trailing" secondItem="xbw-Jb-PgE" secondAttribute="trailing" id="bHI-lP-r11"/>
                             <constraint firstItem="iJE-xj-ggp" firstAttribute="trailing" secondItem="cB1-ni-hsO" secondAttribute="trailing" id="fza-1f-dSv"/>
                             <constraint firstItem="5sV-Wh-eKu" firstAttribute="leading" secondItem="iJE-xj-ggp" secondAttribute="leading" id="h8e-be-oIs"/>
-                            <constraint firstItem="5sV-Wh-eKu" firstAttribute="top" secondItem="xbw-Jb-PgE" secondAttribute="bottom" id="ilI-5F-msO"/>
                             <constraint firstItem="5sV-Wh-eKu" firstAttribute="bottom" secondItem="iJE-xj-ggp" secondAttribute="bottom" id="lb3-HX-UI6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iJE-xj-ggp"/>
                     </view>
                     <navigationItem key="navigationItem" title="CART" id="KB7-KG-TOv">
-                        <barButtonItem key="rightBarButtonItem" image="ic_drinks" id="l95-jM-g8w"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="zLT-Pf-nHY"/>
+                        <barButtonItem key="rightBarButtonItem" image="ic_drinks" id="l95-jM-g8w">
+                            <connections>
+                                <action selector="drinksNavigationBarButtonAction:" destination="Pzz-gY-5WK" id="7iE-nO-c66"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="successView" destination="xbw-Jb-PgE" id="IdZ-LU-YGj"/>
+                        <outlet property="checkoutButton" destination="5sV-Wh-eKu" id="3rD-sy-M0l"/>
                         <outlet property="tableView" destination="48l-Gd-0U5" id="HVN-wE-8eI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fa6-gj-Q84" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1399" y="-493"/>
+            <point key="canvasLocation" x="1398.5507246376812" y="-493.52678571428567"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main Navigation Controller-->
         <scene sceneID="WSv-n5-a2c">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F3u-5p-fJZ" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" interfaceStyle="light" id="F3u-5p-fJZ" customClass="MainNavigationController" customModule="PizzaOrderer" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tDg-hb-9X0">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" name="red"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
@@ -147,19 +135,19 @@ for your order!</string>
         <!--CREATE A PIZZA-->
         <scene sceneID="Zuf-10-Yya">
             <objects>
-                <viewController id="S05-vE-obo" customClass="CreatePizzaViewController" customModule="PizzaOrderer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController interfaceStyle="light" id="S05-vE-obo" customClass="CreatePizzaViewController" customModule="PizzaOrderer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SqL-GD-8bE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_wood" translatesAutoresizingMaskIntoConstraints="NO" id="LGh-qB-M8z">
-                                <rect key="frame" x="0.0" y="44" width="414" height="300"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="6pr-fm-u64"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="omn-Xr-PiO">
-                                <rect key="frame" x="0.0" y="44" width="414" height="300"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="M1t-yD-qSW"/>
                                 </constraints>
@@ -171,7 +159,7 @@ for your order!</string>
                                     <constraint firstAttribute="height" constant="50" id="8k5-hv-wcc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="ADD TO CART (%@)">
+                                <state key="normal" title="ADD TO CART ($%@)">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -182,9 +170,9 @@ for your order!</string>
                                 <rect key="frame" x="0.0" y="862" width="414" height="34"/>
                                 <color key="backgroundColor" name="yellow"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="auw-0m-Lva">
-                                <rect key="frame" x="0.0" y="344" width="414" height="468"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="auw-0m-Lva">
+                                <rect key="frame" x="0.0" y="388" width="414" height="424"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -210,8 +198,11 @@ for your order!</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DsG-66-8NK"/>
                     </view>
-                    <navigationItem key="navigationItem" title="CREATE A PIZZA" id="jN8-jw-WON"/>
+                    <navigationItem key="navigationItem" title="CREATE A PIZZA" id="jN8-jw-WON">
+                        <barButtonItem key="backBarButtonItem" title=" " id="LM1-gx-9OH"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="addToCartButton" destination="U8j-xt-exh" id="XrR-u2-NCC"/>
                         <outlet property="pizzaBoardImageView" destination="LGh-qB-M8z" id="LWC-bI-dHT"/>
                         <outlet property="pizzaImageView" destination="omn-Xr-PiO" id="hZb-uX-dq1"/>
                         <outlet property="tableView" destination="auw-0m-Lva" id="jxe-Oe-kVo"/>

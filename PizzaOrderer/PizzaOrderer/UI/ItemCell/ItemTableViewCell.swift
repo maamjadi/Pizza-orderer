@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ItemTableViewCell: UITableViewCell {
 
@@ -14,8 +15,41 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var ingredient: IngredientDTO? {
+        didSet {
+            guard let ingredient = ingredient else { return }
+
+            titleLabel.text = ingredient.name
+            set(price: ingredient.price)
+            itemImageView.image = UIImage(systemName: "checkmark")
+        }
     }
+
+    var drink: DrinkDTO? {
+        didSet {
+            guard let drink = drink else { return }
+
+            titleLabel.text = drink.name
+            set(price: drink.price)
+            itemImageView.image = UIImage(systemName: "plus")
+        }
+    }
+
+    var checkoutItem: (name: String, price: Double, uniqueIdentifier: Int?)? {
+        didSet {
+            guard let item = checkoutItem else { return }
+
+            let identifierExist = item.uniqueIdentifier == nil
+
+            titleLabel.text = item.name
+            set(price: item.price)
+            itemImageView.image = UIImage(systemName: "multiply")
+            itemImageView.isHidden = identifierExist
+
+            titleLabel.font = UIFont.systemFont(ofSize: 17, weight: (identifierExist ? .bold : .regular))
+            priceLabel.font = UIFont.systemFont(ofSize: 17, weight: (identifierExist ? .bold : .regular))
+        }
+    }
+
+    private func set(price: Double) { priceLabel.text = "$" + String(price) }
 }
