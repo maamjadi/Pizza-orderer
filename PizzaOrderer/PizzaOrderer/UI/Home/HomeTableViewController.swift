@@ -25,6 +25,14 @@ class HomeViewController: UITableViewController {
         tableView.register(UINib(nibName: "PizzaTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
         view.backgroundColor = .white
 
+        //This is to fix the latest iOS (13.4) bug where the defined attributes from storyboard won't work
+         if #available(iOS 13.0, *) {
+            let titleColor = (UIColor(named: "red") ?? .red)
+            let titleFont = UIFont.systemFont(ofSize: 17, weight: .heavy)
+            navigationController?.navigationBar.standardAppearance.titleTextAttributes = [.foregroundColor: titleColor,
+                                                                                          .font: titleFont]
+         }
+
         loadPizzas()
     }
 
