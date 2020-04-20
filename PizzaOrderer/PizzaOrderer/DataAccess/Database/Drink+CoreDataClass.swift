@@ -12,7 +12,6 @@ import CoreData
 @objc(Drink)
 public class Drink: NSManagedObject {
 
-
     class func getItem(with identifier: Int, context: NSManagedObjectContext) -> Drink? {
         return Drink.cd_findAll(inContext: context,
                                 predicate: NSPredicate(format: "identifier == \(identifier)"))?.first

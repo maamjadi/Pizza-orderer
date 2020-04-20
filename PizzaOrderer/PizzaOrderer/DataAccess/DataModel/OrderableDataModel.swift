@@ -11,4 +11,5 @@ import Foundation
 protocol OrderableDataModel {
     var uniqueIdentifier: Int! { get set }
     var name: String { get set }
+    var price: Double { get }
 }

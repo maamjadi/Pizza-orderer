@@ -11,15 +11,10 @@ import Foundation
 public enum Endpoints {
 
     public enum Url {
-
-        static let baseUrl = "​http://next.json-generator.com/api/json/get/"
-
         static let checkOut = "http://httpbin.org/post"
 
-        enum PizzaOrderer {
-            static let ingredients = baseUrl + "EkTFDCdsG​"
-            static let drinks = baseUrl + "N1mnOA_oz​"
-            static let pizzas = baseUrl + "NybelGcjz"
-        }
+        static let ingredients = "https://doclerlabs.github.io/mobile-native-challenge/ingredients.json"
+        static let drinks = "https://doclerlabs.github.io/mobile-native-challenge/drinks.json"
+        static let pizzas = "https://doclerlabs.github.io/mobile-native-challenge/pizzas.json"
     }
 }

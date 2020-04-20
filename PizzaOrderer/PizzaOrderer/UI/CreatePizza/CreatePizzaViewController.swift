@@ -7,20 +7,31 @@
 //
 
 import UIKit
+import Kingfisher
 
-class CreatePizzaViewController: UIViewController {
+class CreatePizzaDelegateImpl: AppMainDelegate {
+
+    typealias dataType = IngredientDTO
+
+    private var dataUpdateListener: () -> Void
+
+    var data = [IngredientDTO]() { didSet { dataUpdateListener() } }
+
+    required init(_ listener: @escaping () -> Void) {
+        self.dataUpdateListener = listener
+    }
+}
+
+class CreatePizzaViewController: AppMainViewController<CreatePizzaDelegateImpl, CreatePizzaViewModel> {
 
     @IBOutlet weak var pizzaBoardImageView: UIImageView!
     @IBOutlet weak var pizzaImageView: UIImageView!
     @IBOutlet weak var addToCartButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
 
-    private let dataRepository = DataRepositoryImpl.dataRepository
     private let cellIdentifier = "ingredientCell"
     private let showCartSegue = "showCart"
     private let buttonTitleFormatText = "ADD TO CART ($%@)"
-
-    private var ingredients = [IngredientDTO]() { didSet { tableView.reloadData() } }
 
     var pizzaDataModel: PizzaDataModel!
     var isCustomPizza = false
@@ -31,7 +42,7 @@ class CreatePizzaViewController: UIViewController {
         super.viewDidLoad()
 
         setupViews()
-        loadIngredients()
+        viewModel.loadIngredients()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -45,8 +56,10 @@ class CreatePizzaViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        dataRepository.saveOrderToPersistentStore()
+        viewModel.saveOrder()
     }
+
+    override func onDataUpdated() { tableView.reloadData() }
 
     private func setupViews() {
         tableView.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
@@ -54,26 +67,22 @@ class CreatePizzaViewController: UIViewController {
         tableView.dataSource = self
         
         view.backgroundColor = .white
-    }
 
-    private func setButtonPrice() {
-        addToCartButton.setTitle(String(format: buttonTitleFormatText, String(pizzaDataModel.totalPrice)), for: .normal)
-    }
+        if let imageUrl = pizzaDataModel.imageUrl {
+            let url = URL(string: imageUrl)
 
-    private func loadIngredients() {
-
-        dataRepository.getIngredients { [weak self] (ingredientsDTO, error) in
-
-            if let ingredientsDTO = ingredientsDTO {
-                self?.ingredients = ingredientsDTO.ingredients
-            } else if let error = error {
-                print(error.localizedDescription)
-            }
+            pizzaImageView.kf.setImage(with: url,
+                                       placeholder: nil,
+                                       options: [.transition(.fade(0.5))])
         }
     }
 
+    private func setButtonPrice() {
+        addToCartButton.setTitle(String(format: buttonTitleFormatText, String(pizzaDataModel.price)), for: .normal)
+    }
+
     @IBAction func addToCartAction(_ sender: Any) {
-        dataRepository.addOrder(pizza: pizzaDataModel)
+        viewModel.addOrder(pizzaDataModel)
         showAlertDialog()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
@@ -84,13 +93,13 @@ class CreatePizzaViewController: UIViewController {
 
 extension CreatePizzaViewController: UITableViewDelegate, UITableViewDataSource {
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { ingredients.count }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { delegateImpl.data.count }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,
                                                        for: indexPath) as? ItemTableViewCell else { return UITableViewCell() }
 
-        let ingredient = ingredients[indexPath.row]
+        let ingredient = delegateImpl.data[indexPath.row]
         cell.ingredient = ingredient
         cell.itemImageView.isHidden = !pizzaDataModel.ingredients.contains(ingredient)
         cell.selectionStyle = .none

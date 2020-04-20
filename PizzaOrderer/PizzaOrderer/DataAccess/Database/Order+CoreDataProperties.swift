@@ -16,6 +16,7 @@ extension Order {
         return NSFetchRequest<Order>(entityName: "Order")
     }
 
+    @NSManaged public var basePizzaPrice: Double
     @NSManaged public var pizzas: Set<Pizza>
     @NSManaged public var drinks: Set<Drink>
 

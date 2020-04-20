@@ -8,14 +8,24 @@
 
 import UIKit
 
-class HomeViewController: UITableViewController {
+class HomeDelegateImpl: AppMainDelegate {
 
-    private let dataRepository = DataRepositoryImpl.dataRepository
+    typealias dataType = PizzaDataModel
+
+    private var dataUpdateListener: () -> Void
+
+    var data = [PizzaDataModel]() { didSet { dataUpdateListener() } }
+
+    required init(_ listener: @escaping () -> Void) {
+        self.dataUpdateListener = listener
+    }
+}
+
+class HomeViewController: AppMainTableViewController<HomeDelegateImpl, HomeViewModel> {
+
     private let cellIdentifier = "homeCell"
     private let createPizzaSegue = "createPizza"
     private let showCartSegue = "showCart"
-
-    private var pizzas = [PizzaDataModel]() { didSet { tableView.reloadData() } }
 
     override var prefersStatusBarHidden: Bool { StatusBarVisibility.shouldHide }
 
@@ -25,19 +35,7 @@ class HomeViewController: UITableViewController {
         tableView.register(UINib(nibName: "PizzaTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
         view.backgroundColor = .white
 
-        loadPizzas()
-    }
-
-    private func loadPizzas() {
-
-        dataRepository.getPizzas { [weak self] (pizzasDataModel, error) in
-
-            if let pizzasDataModel = pizzasDataModel {
-                self?.pizzas = pizzasDataModel
-            } else if let error = error {
-                print(error.localizedDescription)
-            }
-        }
+        viewModel.loadPizzas()
     }
 
     @IBAction func cartNavigationButtonAction(_ sender: Any) {
@@ -47,28 +45,28 @@ class HomeViewController: UITableViewController {
     @IBAction func addNavigationButtonAction(_ sender: Any) {
 
         let pizzaDTO = PizzaDTO(name: "Custom Pizza", ingredients: [], imageUrl: nil)
-        let customPizza = PizzaDataModel(pizzaDTO: pizzaDTO, ingredientsDTO: nil)
+        let customPizza = PizzaDataModel(pizzaDTO: pizzaDTO, ingredientsDTO: [], basePrice: viewModel.basePrice)
 
         performSegue(withIdentifier: createPizzaSegue, sender: customPizza)
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { pizzas.count }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { delegateImpl.data.count }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,
                                                        for: indexPath) as? PizzaTableViewCell else { return UITableViewCell() }
 
-        cell.configure(pizzas[indexPath.row], actionListener: self)
+        cell.configure(delegateImpl.data[indexPath.row], actionListener: self)
 
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: createPizzaSegue, sender: pizzas[indexPath.row])
+        performSegue(withIdentifier: createPizzaSegue, sender: delegateImpl.data[indexPath.row])
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        dataRepository.initializeOrder()
+        viewModel.initializeOrder()
 
         if segue.identifier == createPizzaSegue {
 
@@ -83,7 +81,7 @@ class HomeViewController: UITableViewController {
 extension HomeViewController: PizzaCellDelegate {
 
     func addToCart(_ pizzaDataModel: PizzaDataModel) {
-        dataRepository.addOrder(pizza: pizzaDataModel)
+        viewModel.addOrder(pizza: pizzaDataModel)
         showAlertDialog()
     }
 }

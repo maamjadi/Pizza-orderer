@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainNavigationController: UINavigationController {
+class AppMainNavigationController: UINavigationController {
 
     override var prefersStatusBarHidden: Bool { StatusBarVisibility.shouldHide }
 

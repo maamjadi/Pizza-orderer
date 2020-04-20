@@ -37,6 +37,8 @@ public class Order: NSManagedObject {
             order = Order.cd_new(inContext: context)
         }
 
+        order?.basePizzaPrice = content.basePizzaPrice
+
         content.pizzas.forEach { pizzaDataModel in
             if let pizza = Pizza.addOrUpdatePizza(from: pizzaDataModel, context: context) {
                 order?.addToPizzas(pizza)

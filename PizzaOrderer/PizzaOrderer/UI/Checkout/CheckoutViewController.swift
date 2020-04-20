@@ -9,19 +9,30 @@
 import UIKit
 import SnapKit
 
-class CheckoutViewController: UIViewController {
+class CheckoutDelegateImpl: AppMainDelegate {
+
+    typealias dataType = OrderableDataModel
+
+    private var dataUpdateListener: () -> Void
+
+    var data = [OrderableDataModel]() { didSet { dataUpdateListener() } }
+
+    required init(_ listener: @escaping () -> Void) {
+        self.dataUpdateListener = listener
+    }
+}
+
+class CheckoutViewController: AppMainViewController<CheckoutDelegateImpl, CheckoutViewModel> {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var checkoutButton: UIButton!
 
     private lazy var successView = UIView()
 
-    private let dataRepository = DataRepositoryImpl.dataRepository
     private let cellIdentifier = "chechoutItemsCell"
 
-    private var order: OrderDataModel! { didSet { tableView.reloadData() } }
-    private var pizzas: [PizzaDataModel] { order.pizzas }
-    private var drinks: [DrinkDataModel] { order.drinks }
+    private var pizzas: [PizzaDataModel] { viewModel.pizzas }
+    private var drinks: [DrinkDataModel] { viewModel.drinks }
 
     override var prefersStatusBarHidden: Bool { StatusBarVisibility.shouldHide }
 
@@ -53,8 +64,10 @@ class CheckoutViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        order = dataRepository.order
+        viewModel.updateOrder()
     }
+
+    override func onDataUpdated() { tableView.reloadData() }
 
     private func addSuccessView() {
         successView.backgroundColor = .white
@@ -83,10 +96,7 @@ class CheckoutViewController: UIViewController {
     
     @IBAction func checkoutAction(_ sender: Any) {
 
-        dataRepository.requestOrder { _, error in
-
-            if let error = error { print(error.localizedDescription) }
-        }
+        viewModel.sendOrderRequest()
 
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
 
@@ -111,11 +121,9 @@ class CheckoutViewController: UIViewController {
 extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var numberOfRows = pizzas.count + drinks.count
+        var numberOfRows = delegateImpl.data.count
 
-        if !pizzas.isEmpty || !drinks.isEmpty {
-            numberOfRows += 1
-        }
+        numberOfRows += delegateImpl.data.isEmpty ? 0 : 1
 
         return numberOfRows
     }
@@ -130,18 +138,14 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
         let cellDataType = CellDataType(row: row, pizzas: pizzas, drinks: drinks)
 
         switch cellDataType {
-        case .pizza:
-            let pizza = pizzas[row]
-            cell.checkoutItem = (name: pizza.name, price: pizza.totalPrice, uniqueIdentifier: pizza.uniqueIdentifier)
-
-        case .drink:
-            let drink = drinks[row - pizzas.count]
-            cell.checkoutItem = (name: drink.name, price: drink.price, uniqueIdentifier: drink.uniqueIdentifier)
+        case .pizza, .drink:
+            let orderableItem = delegateImpl.data[row]
+            cell.checkoutItem = (name: orderableItem.name, price: orderableItem.price, uniqueIdentifier: orderableItem.uniqueIdentifier)
 
         case .total:
             var price = 0.0
 
-            price = pizzas.map({ $0.totalPrice }).reduce(0, +)
+            price = pizzas.map({ $0.price }).reduce(0, +)
             price += drinks.map({ $0.price }).reduce(0, +)
 
             cell.checkoutItem = (name: "TOTAL", price: price, uniqueIdentifier: nil)
@@ -161,16 +165,16 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
 
         switch cellDataType {
         case .pizza:
-            if let identifier = checkoutItem.uniqueIdentifier { dataRepository.removeOrder(pizzaIdentifier: identifier) }
+            if let identifier = checkoutItem.uniqueIdentifier { viewModel.removeOrder(pizzaIdentifier: identifier) }
 
         case .drink:
-            if let identifier = checkoutItem.uniqueIdentifier { dataRepository.removeOrder(drinkIdentifier: identifier) }
+            if let identifier = checkoutItem.uniqueIdentifier { viewModel.removeOrder(drinkIdentifier: identifier) }
 
         default:
             break
         }
 
-        dataRepository.saveOrderToPersistentStore()
-        order = dataRepository.order
+        viewModel.saveOrder()
+        viewModel.updateOrder()
     }
 }
