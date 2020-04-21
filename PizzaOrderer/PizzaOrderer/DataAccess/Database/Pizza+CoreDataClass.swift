@@ -28,7 +28,7 @@ public class Pizza: NSManagedObject {
 
         pizza?.name = content.name
         pizza?.identifier = Int64(content.uniqueIdentifier)
-        pizza?.price = content.totalPrice
+        pizza?.price = content.price
 
         return pizza
     }

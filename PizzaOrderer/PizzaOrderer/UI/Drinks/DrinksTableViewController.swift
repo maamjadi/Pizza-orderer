@@ -8,12 +8,22 @@
 
 import UIKit
 
-class DrinksTableViewController: UITableViewController {
+class DrinksDelegateImpl: AppMainDelegate {
 
-    private let dataRepository = DataRepositoryImpl.dataRepository
+    typealias dataType = DrinkDTO
+
+    private var dataUpdateListener: () -> Void
+
+    var data = [DrinkDTO]() { didSet { dataUpdateListener() } }
+
+    required init(_ listener: @escaping () -> Void) {
+        self.dataUpdateListener = listener
+    }
+}
+
+class DrinksTableViewController: AppMainTableViewController<DrinksDelegateImpl, DrinksViewModel> {
+
     private let cellIdentifier = "drinksCell"
-
-    private var drinks = [DrinkDTO]() { didSet { tableView.reloadData() } }
 
     override var prefersStatusBarHidden: Bool { StatusBarVisibility.shouldHide }
 
@@ -25,13 +35,13 @@ class DrinksTableViewController: UITableViewController {
 
         setupTableView()
 
-        loadDrinks()
+        viewModel.loadDrinks()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        dataRepository.saveOrderToPersistentStore()
+        viewModel.saveOrder()
     }
 
     private func setupTableView() {
@@ -41,18 +51,7 @@ class DrinksTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 0
     }
 
-    private func loadDrinks() {
-        dataRepository.getDrinks { [weak self] (drinksDTO, error) in
-
-            if let drinksDTO = drinksDTO {
-                self?.drinks = drinksDTO.drinks
-            } else if let error = error {
-                print(error.localizedDescription)
-            }
-        }
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { drinks.count }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { delegateImpl.data.count }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
@@ -61,7 +60,7 @@ class DrinksTableViewController: UITableViewController {
                                                         return UITableViewCell()
         }
 
-        cell.drink = drinks[indexPath.row]
+        cell.drink = delegateImpl.data[indexPath.row]
         cell.selectionStyle = .none
 
         return cell
@@ -72,7 +71,7 @@ class DrinksTableViewController: UITableViewController {
         guard let cell = tableView.cellForRow(at: indexPath) as? ItemTableViewCell, let drink = cell.drink else { return }
 
         let drinkDataModel = DrinkDataModel(identifier: drink.identifier, name: drink.name, price: drink.price)
-        dataRepository.addOrder(drink: drinkDataModel)
+        viewModel.addOrder(drinkDataModel)
         showAlertDialog()
     }
 

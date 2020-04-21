@@ -8,9 +8,6 @@
 
 import Foundation
 
-struct IngredientsDTO: Codable {
-    var ingredients: [IngredientDTO]
-}
 
 struct IngredientDTO: Codable, Hashable, Equatable {
     var identifier: Int

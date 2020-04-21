@@ -8,9 +8,6 @@
 
 import Foundation
 
-struct DrinksDTO: Codable {
-    var drinks: [DrinkDTO]
-}
 
 struct DrinkDTO: Codable {
     var identifier: Int

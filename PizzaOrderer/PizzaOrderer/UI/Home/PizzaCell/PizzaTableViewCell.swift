@@ -49,8 +49,7 @@ class PizzaTableViewCell: UITableViewCell {
                                            options: [.transition(.fade(0.5))])
             }
 
-            let totalPrice = pizzaDataModel.ingredients.map({ $0.price }).reduce(0, +)
-            priceLabel.text = "$" + String(Int(totalPrice))
+            priceLabel.text = "$" + String(Int(pizzaDataModel.price))
 
             layoutIfNeeded()
         }
