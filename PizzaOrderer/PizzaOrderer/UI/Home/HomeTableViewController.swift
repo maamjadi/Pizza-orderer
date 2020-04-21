@@ -34,7 +34,6 @@ class HomeViewController: AppMainTableViewController<HomeDelegateImpl, HomeViewM
 
         tableView.register(UINib(nibName: "PizzaTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
         view.backgroundColor = .white
-
         viewModel.loadPizzas()
     }
 
