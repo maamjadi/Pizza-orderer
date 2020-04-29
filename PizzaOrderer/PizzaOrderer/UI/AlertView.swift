@@ -25,6 +25,8 @@ class AlertView: UIView {
 
     private func setupUI() {
 
+        backgroundColor = UIColor(named: "red")
+
         titleLabel.textColor = .white
         titleLabel.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         titleLabel.text = "ADDED TO CART"

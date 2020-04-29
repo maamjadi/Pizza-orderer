@@ -40,8 +40,6 @@ extension UIViewController {
             window??.addSubview(spacingView)
             window??.bringSubviewToFront(alertView)
 
-            alertView.backgroundColor = UIColor(named: "red")
-
             alertView.snp.makeConstraints { make in
                 make.top.left.right.equalToSuperview()
                 make.height.equalTo(statusBarHeight)
