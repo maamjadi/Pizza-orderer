@@ -12,8 +12,6 @@
 		DD05FC50243C638000AC6351 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05FC4E243C638000AC6351 /* ItemTableViewCell.swift */; };
 		DD05FC51243C638000AC6351 /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD05FC4F243C638000AC6351 /* ItemTableViewCell.xib */; };
 		DD156B6A244E115D004FB6E3 /* Order+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9E0D5243D8DD800CCF28B /* Order+CoreDataClass.swift */; };
-		DD156B6B244E1160004FB6E3 /* Pizza+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9E0DA243D8EBC00CCF28B /* Pizza+CoreDataClass.swift */; };
-		DD156B6C244E1163004FB6E3 /* Drink+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9E0D9243D8EBC00CCF28B /* Drink+CoreDataClass.swift */; };
 		DD22A945244DEF910089F201 /* DataFetcherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22A942244DEF910089F201 /* DataFetcherRepository.swift */; };
 		DD22A946244DEF910089F201 /* OrderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22A944244DEF910089F201 /* OrderRepository.swift */; };
 		DD22A96C244DF1580089F201 /* PizzaOrdererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22A96A244DF1580089F201 /* PizzaOrdererTests.swift */; };
@@ -60,8 +58,6 @@
 		DD22A9B2244E0EDD0089F201 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5DE3C4243D95DB005CA40C /* Endpoints.swift */; };
 		DD22A9B3244E0EE20089F201 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5DE3D9243F8F93005CA40C /* UIViewControllerExtension.swift */; };
 		DD22A9B5244E0EF90089F201 /* Order+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9E0D6243D8DD800CCF28B /* Order+CoreDataProperties.swift */; };
-		DD22A9B7244E0EFF0089F201 /* Pizza+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9E0DB243D8EBC00CCF28B /* Pizza+CoreDataProperties.swift */; };
-		DD22A9B9244E0F060089F201 /* Drink+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9E0DC243D8EBC00CCF28B /* Drink+CoreDataProperties.swift */; };
 		DD22A9BA244E0F1A0089F201 /* ManagedObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9E0BC243D84FD00CCF28B /* ManagedObjectExtension.swift */; };
 		DD22A9BB244E0F1D0089F201 /* PersistentContainerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9E0BE243D84FD00CCF28B /* PersistentContainerExtensions.swift */; };
 		DD22A9BC244E0F210089F201 /* ContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9E0BD243D84FD00CCF28B /* ContextExtension.swift */; };
@@ -94,11 +90,11 @@
 		DDA9E0D0243D8C8F00CCF28B /* drinks.json in Resources */ = {isa = PBXBuildFile; fileRef = DDA9E0CD243D8C8F00CCF28B /* drinks.json */; };
 		DDA9E0D7243D8DD800CCF28B /* Order+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9E0D5243D8DD800CCF28B /* Order+CoreDataClass.swift */; };
 		DDA9E0D8243D8DD800CCF28B /* Order+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9E0D6243D8DD800CCF28B /* Order+CoreDataProperties.swift */; };
-		DDA9E0DD243D8EBC00CCF28B /* Drink+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9E0DC243D8EBC00CCF28B /* Drink+CoreDataProperties.swift */; };
-		DDA9E0DE243D8EBC00CCF28B /* Pizza+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9E0DB243D8EBC00CCF28B /* Pizza+CoreDataProperties.swift */; };
-		DDA9E0DF243D8EBC00CCF28B /* Drink+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9E0D9243D8EBC00CCF28B /* Drink+CoreDataClass.swift */; };
-		DDA9E0E0243D8EBC00CCF28B /* Pizza+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA9E0DA243D8EBC00CCF28B /* Pizza+CoreDataClass.swift */; };
 		DDCD4764243D952500C02971 /* PizzaOrderer.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = DD87AA88243C4B6E00E7FE23 /* PizzaOrderer.xcdatamodeld */; };
+		E427BF3C254FE55600151B64 /* Drink+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E427BF38254FE55600151B64 /* Drink+CoreDataClass.swift */; };
+		E427BF3D254FE55600151B64 /* Drink+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E427BF39254FE55600151B64 /* Drink+CoreDataProperties.swift */; };
+		E427BF3E254FE55600151B64 /* Pizza+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E427BF3A254FE55600151B64 /* Pizza+CoreDataProperties.swift */; };
+		E427BF3F254FE55600151B64 /* Pizza+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E427BF3B254FE55600151B64 /* Pizza+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,10 +163,10 @@
 		DDA9E0CD243D8C8F00CCF28B /* drinks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = drinks.json; sourceTree = "<group>"; };
 		DDA9E0D5243D8DD800CCF28B /* Order+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DDA9E0D6243D8DD800CCF28B /* Order+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		DDA9E0D9243D8EBC00CCF28B /* Drink+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Drink+CoreDataClass.swift"; path = "/Users/amin.amjadi/Projects/Pizza-orderer/PizzaOrderer/PizzaOrderer/DataAccess/Database/Drink+CoreDataClass.swift"; sourceTree = "<absolute>"; };
-		DDA9E0DA243D8EBC00CCF28B /* Pizza+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Pizza+CoreDataClass.swift"; path = "/Users/amin.amjadi/Projects/Pizza-orderer/PizzaOrderer/PizzaOrderer/DataAccess/Database/Pizza+CoreDataClass.swift"; sourceTree = "<absolute>"; };
-		DDA9E0DB243D8EBC00CCF28B /* Pizza+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Pizza+CoreDataProperties.swift"; path = "/Users/amin.amjadi/Projects/Pizza-orderer/PizzaOrderer/PizzaOrderer/DataAccess/Database/Pizza+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
-		DDA9E0DC243D8EBC00CCF28B /* Drink+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Drink+CoreDataProperties.swift"; path = "/Users/amin.amjadi/Projects/Pizza-orderer/PizzaOrderer/PizzaOrderer/DataAccess/Database/Drink+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		E427BF38254FE55600151B64 /* Drink+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Drink+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E427BF39254FE55600151B64 /* Drink+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Drink+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E427BF3A254FE55600151B64 /* Pizza+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pizza+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E427BF3B254FE55600151B64 /* Pizza+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pizza+CoreDataClass.swift"; sourceTree = "<group>"; };
 		EDC5E69B15EB25F62C4CDCE6 /* Pods-PizzaOrderer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PizzaOrderer.release.xcconfig"; path = "Target Support Files/Pods-PizzaOrderer/Pods-PizzaOrderer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -432,10 +428,10 @@
 				DD87AA88243C4B6E00E7FE23 /* PizzaOrderer.xcdatamodeld */,
 				DDA9E0D5243D8DD800CCF28B /* Order+CoreDataClass.swift */,
 				DDA9E0D6243D8DD800CCF28B /* Order+CoreDataProperties.swift */,
-				DDA9E0DA243D8EBC00CCF28B /* Pizza+CoreDataClass.swift */,
-				DDA9E0DB243D8EBC00CCF28B /* Pizza+CoreDataProperties.swift */,
-				DDA9E0D9243D8EBC00CCF28B /* Drink+CoreDataClass.swift */,
-				DDA9E0DC243D8EBC00CCF28B /* Drink+CoreDataProperties.swift */,
+				E427BF38254FE55600151B64 /* Drink+CoreDataClass.swift */,
+				E427BF39254FE55600151B64 /* Drink+CoreDataProperties.swift */,
+				E427BF3B254FE55600151B64 /* Pizza+CoreDataClass.swift */,
+				E427BF3A254FE55600151B64 /* Pizza+CoreDataProperties.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -652,20 +648,16 @@
 				DD22A99D244E06F80089F201 /* DrinksTableViewController.swift in Sources */,
 				DD22A9AC244E0EA90089F201 /* IngredientsDTO.swift in Sources */,
 				DD22A980244DF7440089F201 /* AppMainViewController.swift in Sources */,
-				DD156B6C244E1163004FB6E3 /* Drink+CoreDataClass.swift in Sources */,
 				DD22A9B3244E0EE20089F201 /* UIViewControllerExtension.swift in Sources */,
 				DD22A9A3244E06F80089F201 /* CheckoutViewController.swift in Sources */,
 				DD22A982244DF7440089F201 /* AppMainNavigationController.swift in Sources */,
 				DD22A9B5244E0EF90089F201 /* Order+CoreDataProperties.swift in Sources */,
 				DD22A990244DF7D50089F201 /* HomeTableViewController.swift in Sources */,
-				DD156B6B244E1160004FB6E3 /* Pizza+CoreDataClass.swift in Sources */,
 				DD22A9AA244E0E9D0089F201 /* PizzaDataModel.swift in Sources */,
 				DD22A9AD244E0EB00089F201 /* PizzasDTO.swift in Sources */,
 				DD22A97C244DF7440089F201 /* AppMainViewModel.swift in Sources */,
 				DD22A9A8244E0C760089F201 /* DataFetcherRepository.swift in Sources */,
 				DD22A9A1244E06F80089F201 /* CreatePizzaViewController.swift in Sources */,
-				DD22A9B9244E0F060089F201 /* Drink+CoreDataProperties.swift in Sources */,
-				DD22A9B7244E0EFF0089F201 /* Pizza+CoreDataProperties.swift in Sources */,
 				DD22A9BC244E0F210089F201 /* ContextExtension.swift in Sources */,
 				DD22A9BA244E0F1A0089F201 /* ManagedObjectExtension.swift in Sources */,
 				DD22A9A7244E0C6E0089F201 /* OrderRepository.swift in Sources */,
@@ -686,24 +678,25 @@
 				DD22A946244DEF910089F201 /* OrderRepository.swift in Sources */,
 				DD22A99C244E06F80089F201 /* DrinksTableViewController.swift in Sources */,
 				DD87AA85243C4B6E00E7FE23 /* AppDelegate.swift in Sources */,
+				E427BF3D254FE55600151B64 /* Drink+CoreDataProperties.swift in Sources */,
 				DD5DE3CF243DC427005CA40C /* EncodableExtension.swift in Sources */,
 				DD5DE3DA243F8F93005CA40C /* UIViewControllerExtension.swift in Sources */,
 				DDA9E0C9243D879800CCF28B /* OrderObjectDTO.swift in Sources */,
 				DDA9E0D8243D8DD800CCF28B /* Order+CoreDataProperties.swift in Sources */,
 				DDA9E0C3243D858500CCF28B /* IngredientsDTO.swift in Sources */,
 				DDA9E0D7243D8DD800CCF28B /* Order+CoreDataClass.swift in Sources */,
-				DDA9E0DD243D8EBC00CCF28B /* Drink+CoreDataProperties.swift in Sources */,
 				DD5DE3D6243F1D67005CA40C /* OrderableDataModel.swift in Sources */,
 				DD5DE3CC243DBA19005CA40C /* DrinkDataModel.swift in Sources */,
 				DDA9E0BF243D84FD00CCF28B /* ManagedObjectExtension.swift in Sources */,
 				DD22A989244DF7D50089F201 /* PizzaTableViewCell.swift in Sources */,
 				DD22A9A2244E06F80089F201 /* CheckoutViewController.swift in Sources */,
 				DD22A9A0244E06F80089F201 /* CreatePizzaViewController.swift in Sources */,
+				E427BF3E254FE55600151B64 /* Pizza+CoreDataProperties.swift in Sources */,
 				DD5DE3C5243D95DB005CA40C /* Endpoints.swift in Sources */,
 				DD22A979244DF7440089F201 /* AppMainDelegate.swift in Sources */,
-				DDA9E0E0243D8EBC00CCF28B /* Pizza+CoreDataClass.swift in Sources */,
 				DDA9E0C5243D86A000CCF28B /* DrinksDTO.swift in Sources */,
 				DD5DE3C8243D9B52005CA40C /* PizzaDataModel.swift in Sources */,
+				E427BF3F254FE55600151B64 /* Pizza+CoreDataClass.swift in Sources */,
 				DD22A9A4244E06F80089F201 /* CheckoutViewModel.swift in Sources */,
 				DDA9E0C0243D84FD00CCF28B /* ContextExtension.swift in Sources */,
 				DDA9E0C1243D84FD00CCF28B /* PersistentContainerExtensions.swift in Sources */,
@@ -714,11 +707,10 @@
 				DD22A945244DEF910089F201 /* DataFetcherRepository.swift in Sources */,
 				DD22A97B244DF7440089F201 /* AppMainViewModel.swift in Sources */,
 				DD22A97F244DF7440089F201 /* AppMainViewController.swift in Sources */,
-				DDA9E0DF243D8EBC00CCF28B /* Drink+CoreDataClass.swift in Sources */,
-				DDA9E0DE243D8EBC00CCF28B /* Pizza+CoreDataProperties.swift in Sources */,
 				DDA9E0C7243D86C900CCF28B /* PizzasDTO.swift in Sources */,
 				DD22A9A9244E0CA50089F201 /* HomeViewModel.swift in Sources */,
 				DD5DE3D8243F7E00005CA40C /* AlertView.swift in Sources */,
+				E427BF3C254FE55600151B64 /* Drink+CoreDataClass.swift in Sources */,
 				DD5DE3CA243D9BC1005CA40C /* OrderDataModel.swift in Sources */,
 				DD22A981244DF7440089F201 /* AppMainNavigationController.swift in Sources */,
 				DD22A99E244E06F80089F201 /* CreatePizzaViewModel.swift in Sources */,
